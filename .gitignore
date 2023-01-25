@@ -1,4 +1,12 @@
+# train was used for testing
 train
+
+# others should generate this on their own
 node_modules
 
+# don't expose frames 
+frames/remaining/*
+!frames/remaining
+
+# configs for twitter api
 config.ts
