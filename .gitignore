@@ -1,4 +1,4 @@
-./train*
 ./train
+./node_modules
 
 .env
