@@ -7,6 +7,8 @@ node_modules
 # don't expose frames 
 frames/remaining/*
 !frames/remaining
+frames/used/*
+!frames/used
 
 # configs for twitter api
 config.ts
