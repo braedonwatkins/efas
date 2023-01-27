@@ -35,13 +35,14 @@ const freeFrame = (path: string): boolean => {
   return false;
 };
 
-//TODO: Path Frame
+//DONE: Path Frame
 /*
   1. take in frame num & folder
   2. return string of frame at that path
 */
-const pathFrame = (folder: string, frameNum: number): string =>
-  `./frames/${folder}/${frameNum}`;
+const pathFrame = (folder: string, frameNum: number): string => {
+  return `./frames/${folder}/${frameNum}`;
+};
 
 // TODO: generalize inside of postFrame function
 const postFrame = async (pickFrame, freeFrame) => {
