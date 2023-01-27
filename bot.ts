@@ -7,13 +7,22 @@ const config = require("./config.ts");
 
 const client = new TwitterApi(config);
 
-// TODO: Frame Picker
+// DONE: Frame Picker
 /*
     1. gets random num for num of frames remaining
     2. return number to reference for the tweet
  */
 const pickFrame = (): number => {
-  return -1337;
+  const max = 154556 + 1;
+  const min = 367;
+
+  let diff = max - min;
+
+  let rand = Math.random();
+  rand = Math.floor(rand * diff);
+  rand += min;
+
+  return rand;
 };
 
 //TODO: Free Frame
