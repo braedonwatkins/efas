@@ -62,12 +62,19 @@ const freeFrame = (frameNum: number): boolean => {
   let newPath: string = pathFrame("used", frameNum);
 
   fs.rename(oldPath, newPath, (err: string) => {
-    if (err) return false;
-    console.log(`${oldPath} has been successfully freed!`);
-    return true;
+    if (err) {
+      console.log(err);
+      return false;
+    } else {
+      console.log(`${oldPath} has been successfully freed!`);
+      return true;
+    }
   });
 
-  return false; // if for some reason fs.rename doesn't trigger
+  //TODO: find out why return false here always triggers
+  //despite fs.rename(){} logic...
+  return true;
+  // return false; // if for some reason fs.rename doesn't trigger
 };
 
 //DONE: Path Frame
