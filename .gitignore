@@ -10,3 +10,6 @@ frames/remaining/*
 
 # configs for twitter api
 config.ts
+
+# apple more like...
+.DS_Store
