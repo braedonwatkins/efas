@@ -83,7 +83,7 @@ const freeFrame = (frameNum: number): boolean => {
   2. return string of frame at that path
 */
 const pathFrame = (folder: string, frameNum: number): string => {
-  return `./frames/${folder}/${frameNum}`;
+  return `./frames/${folder}/frame${frameNum}.png`;
 };
 
 // DONE: generalize inside of postFrame function
