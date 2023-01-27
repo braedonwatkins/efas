@@ -26,7 +26,7 @@ const pickFrame = (): number => {
   return rand;
 };
 
-//TODO: Free Frame
+//DONE: Free Frame
 /*
     1. take in frame num
     2. move frame at that path to used
@@ -37,10 +37,12 @@ const freeFrame = (frameNum: number): boolean => {
   let newPath: string = pathFrame("used", frameNum);
 
   fs.rename(oldPath, newPath, (err: string) => {
-    if (err) throw err;
+    if (err) return false;
     console.log(`${oldPath} has been successfully freed!`);
+    return true;
   });
-  return false;
+
+  return false; // if for some reason fs.rename doesn't trigger
 };
 
 //DONE: Path Frame
