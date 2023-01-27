@@ -2,6 +2,7 @@ console.log("Every Frame a Spider Starting!");
 
 const { TwitterApi } = require("twitter-api-v2");
 const config = require("./config.ts");
+const fs = require("fs");
 
 // console.log("debugging: loaded configs\n" + JSON.stringify(config, null, 4));
 
@@ -27,11 +28,18 @@ const pickFrame = (): number => {
 
 //TODO: Free Frame
 /*
-    1. take in frame path
+    1. take in frame num
     2. move frame at that path to used
     3. return success (true) / fail (false)
 */
-const freeFrame = (path: string): boolean => {
+const freeFrame = (frameNum: number): boolean => {
+  let oldPath: string = pathFrame("remaining", frameNum);
+  let newPath: string = pathFrame("used", frameNum);
+
+  fs.rename(oldPath, newPath, (err: string) => {
+    if (err) throw err;
+    console.log(`${oldPath} has been successfully freed!`);
+  });
   return false;
 };
 
