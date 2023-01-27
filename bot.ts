@@ -18,18 +18,26 @@ const pickFrame = (): number => {
 
 //TODO: Free Frame
 /*
-    1. take in path to frame
-    2. delete frame at that path
+    1. take in frame path
+    2. move frame at that path to used
     3. return success (true) / fail (false)
 */
 const freeFrame = (path: string): boolean => {
   return false;
 };
 
+//TODO: Path Frame
+/*
+  1. take in frame num & folder
+  2. return string of frame at that path
+*/
+const pathFrame = (folder: string, frameNum: number): string =>
+  `./frames/${folder}/${frameNum}`;
+
 // TODO: generalize inside of postFrame function
 const postFrame = async (pickFrame, freeFrame) => {
   const frameNum = pickFrame();
-  const framePath = `./frames/remaining/${frameNum}`;
+  const framePath = pathFrame("remaining", frameNum);
 
   const { data: createdTweet } = await client.v2.tweet(
     "Frame" + " " + frameNum.toString(),
