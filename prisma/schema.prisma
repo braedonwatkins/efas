@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./mock.sqlite" // may change to env variable
+}
+
+model FrameSet {
+  id        Int     @id @unique
+  remaining Int?
+  frame     Frame[]
+}
+
+// for now this works
+model Frame {
+  id         Int      @id @unique @default(autoincrement())
+  frameCount Int
+  set        FrameSet @relation(fields: [setId], references: [id])
+  setId      Int
+}
