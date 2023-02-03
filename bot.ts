@@ -1,9 +1,11 @@
 console.log("Every Frame a Spider Starting!");
 
+// TODO: check converting these again to imports
 const { TwitterApi } = require("twitter-api-v2");
 const config = require("./config.ts");
 const fs = require("fs");
 
+// TODO: check with new video re-check these frames
 const MAX_FRAME = 154556;
 const MIN_FRAME = 367;
 
