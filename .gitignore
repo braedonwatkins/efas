@@ -10,5 +10,8 @@ fs/*
 # configs for twitter api
 config.ts
 
+# don't expose the film 
+spiderverse.mp4
+
 # apple more like...
 .DS_Store
