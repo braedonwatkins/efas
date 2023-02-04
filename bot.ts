@@ -1,8 +1,9 @@
 console.log("Every Frame a Spider Starting!");
 
+import fs from "fs";
+
 const { TwitterApi } = require("twitter-api-v2");
 const config = require("./config.ts");
-const fs = require("fs");
 
 const MAX_FRAME = 154556;
 const MIN_FRAME = 367;
@@ -61,9 +62,9 @@ const freeFrame = (frameNum: number): boolean => {
   let oldPath: string = pathFrame("remaining", frameNum);
   let newPath: string = pathFrame("used", frameNum);
 
-  fs.rename(oldPath, newPath, (err: string) => {
-    if (err) {
-      console.log(err);
+  fs.rename(oldPath, newPath, (e) => {
+    if (e) {
+      console.error(e);
       return false;
     } else {
       console.log(`${oldPath} has been successfully freed!`);
