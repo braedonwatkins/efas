@@ -5,8 +5,7 @@ import fs from "fs";
 const { TwitterApi } = require("twitter-api-v2");
 const config = require("./config.ts");
 
-const MAX_FRAME = 154556;
-const MIN_FRAME = 367;
+import { MAX_FRAME, MIN_FRAME } from "./const";
 
 // console.log("debugging: loaded configs\n" + JSON.stringify(config, null, 4));
 
