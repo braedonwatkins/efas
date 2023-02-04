@@ -4,11 +4,8 @@ train
 # others should generate this on their own
 node_modules
 
-# don't expose frames 
-frames/remaining/*
-!frames/remaining
-frames/used/*
-!frames/used
+# no need to upload the frame query list
+fs/*
 
 # configs for twitter api
 config.ts
