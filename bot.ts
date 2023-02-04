@@ -2,12 +2,9 @@ console.log("Every Frame a Spider Starting!");
 
 import fs from "fs";
 
-const { TwitterApi } = require("twitter-api-v2");
-const config = require("./config.ts");
-
+import { TwitterApi } from "twitter-api-v2";
+import { config } from "./config";
 import { MAX_FRAME, MIN_FRAME } from "./const";
-
-// console.log("debugging: loaded configs\n" + JSON.stringify(config, null, 4));
 
 const client = new TwitterApi(config);
 
