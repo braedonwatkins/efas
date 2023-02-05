@@ -13,5 +13,8 @@ config.ts
 # don't expose the film 
 spiderverse.mp4
 
+# don't expose RSA
+everyspider.pem
+
 # apple more like...
 .DS_Store
