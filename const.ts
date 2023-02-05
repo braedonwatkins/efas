@@ -1,5 +1,6 @@
-export const MAX_FRAME = 154556; // TODO: adjust for new source
-export const MIN_FRAME = 367; // TODO: adjust for new source
+export const MAX_FRAME = 156018;
+export const MIN_FRAME = 1830;
+export const TOTAL_FRAME = MAX_FRAME - MIN_FRAME;
 
 export const FRAME_RATE = 24;
 export const FRAME_DIR = "./fs";
