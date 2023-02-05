@@ -1,11 +1,15 @@
 console.log("Every Frame a Spider Starting!");
 
-import fs from "fs";
-
 import { TwitterApi } from "twitter-api-v2";
 import { config } from "./config";
 import { MAX_FRAME, MIN_FRAME } from "./const";
 import { getFrame } from "./ffmpeg";
+import {
+  getArr,
+  getBorderIndex,
+  getRemainingUsedFrames,
+  removeFrame,
+} from "./fs";
 
 const client = new TwitterApi(config);
 
