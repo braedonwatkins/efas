@@ -6,7 +6,8 @@ export const MIN_FRAME = 1830;
 export const TOTAL_FRAME = MAX_FRAME - MIN_FRAME;
 export const FRAME_RATE = 24;
 
-export const PREFIX = "~/bot";
+export const PREFIX = "/home/ec2-user/bot";
+
 let frame_dir, frame_list, video_path;
 
 if (isProd) {
