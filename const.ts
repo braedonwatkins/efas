@@ -3,8 +3,8 @@ export const MIN_FRAME = 1830;
 export const TOTAL_FRAME = MAX_FRAME - MIN_FRAME;
 
 export const FRAME_RATE = 24;
-export const FRAME_DIR = "./fs";
-export const FRAME_LIST = `${FRAME_DIR}/framelist.csv`;
+export const PREFIX = "~/bot";
+export const FRAME_DIR = "fs";
+export const FRAME_LIST = `${PREFIX}/${FRAME_DIR}/framelist.csv`;
 export const FRAME_NAME = "frame.png";
-export const VIDEO_PATH = "./spiderverse.mp4";
-
+export const VIDEO_PATH = `${PREFIX}/spiderverse.mp4`;
