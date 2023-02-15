@@ -7,8 +7,7 @@ import {
   TOTAL_FRAME,
 } from "./const";
 
-//TODO: FIX WEIRD INDEXING NONSENSE W TOTAL_FRAME
-
+// DONE: FIX WEIRD INDEXING NONSENSE W TOTAL_FRAME
 // CHECKED: Working
 export const getArr = (): number[] => {
   let data = fs.readFileSync(`${FRAME_LIST}`, "utf-8");
@@ -20,30 +19,33 @@ export const getArr = (): number[] => {
 //CHECKED: Working
 export const getBorderIndex = (arr: number[]) => {
   const count = arr[TOTAL_FRAME + 1];
-  const index = MAX_FRAME - count + 1;
+  const index = TOTAL_FRAME - count + 1;
+  // console.log(`count: ${count}, index: ${index}`);
 
   return index;
 };
 
 //CHECKED: Working
-export const removeFrame = (frameNum: number, arr: number[]) => {
+export const removeFrame = (frameIndex: number, arr: number[]): number => {
   arr[TOTAL_FRAME + 1]++;
   const index = getBorderIndex(arr);
 
   //TODO: fix weird cases but necessary for now
-  if (index < frameNum || index < 0)
+  if (index < frameIndex || index < 0)
     throw new Error(
-      `Logic error in frame selection. Undefined behavior could occur.\n frameNum: ${frameNum}\n index: ${index}`
+      `Logic error in frame selection. Undefined behavior could occur.\n frameIndex: ${frameIndex}\n index: ${index}`
     );
 
-  let temp = frameNum;
-  frameNum = arr[index];
+  let temp = arr[frameIndex];
+  arr[frameIndex] = arr[index];
   arr[index] = temp;
 
   // Write the CSV string to a file
   let csv = arr.join(",") + "\n";
 
   fs.writeFileSync(`${FRAME_LIST}`, csv);
+
+  return arr[index];
 };
 
 //CHECKED: Working
