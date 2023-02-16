@@ -1,7 +1,7 @@
 import { isProd } from "./config";
-
 export const MAX_FRAME = 156018 + 1; // +1 offset for consistency w manual frames
 export const MIN_FRAME = 1830 + 1; // +1 offset for consistency w manual frames
+
 export const TOTAL_FRAME = MAX_FRAME - MIN_FRAME;
 export const FRAME_RATE = 24;
 
