@@ -3,7 +3,7 @@ console.log("Every Frame a Spider Starting!");
 import { getFrame } from "./ffmpeg";
 import { getArr, getBorderIndex, removeFrame } from "./fs";
 import { FrameInfo } from "./types";
-import { uploadTwitter, uploadTumblr } from "./uploads";
+import { twitterUpload, tumblrUpload } from "./uploads";
 
 // DONE: Frame Picker
 /*
@@ -39,15 +39,15 @@ const postFrame = async () => {
   };
 
   try {
-    await uploadTwitter(frame);
+    await twitterUpload(frame);
   } catch (e) {
     console.log(e);
   }
-  try {
-    await uploadTumblr(frame);
-  } catch (e) {
-    console.log(e);
-  }
+  // try {
+  //   await uploadTumblr(frame);
+  // } catch (e) {
+  //   console.log(e);
+  // }
 };
 
 //DONE: Execute
