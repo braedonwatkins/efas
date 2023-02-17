@@ -1,12 +1,9 @@
 console.log("Every Frame a Spider Starting!");
 
-import { TwitterApi } from "twitter-api-v2";
-import { config } from "./config";
 import { getFrame } from "./ffmpeg";
 import { getArr, getBorderIndex, removeFrame } from "./fs";
 import { FrameInfo } from "./types";
-
-const client = new TwitterApi(config);
+import { uploadTwitter, uploadTumblr } from "./uploads";
 
 // DONE: Frame Picker
 /*
@@ -27,6 +24,8 @@ const pickFrameIndex = (arr: number[]): number => {
 const postFrame = async () => {
   const arr = getArr();
   const frameIndex = await pickFrameIndex(arr);
+
+  // TODO: ADD checking for failure here
   const frameNum = removeFrame(frameIndex, arr);
 
   // accounts for the +1 offset between my frames and stephen's
@@ -37,12 +36,18 @@ const postFrame = async () => {
     num: frameNum,
     index: frameIndex,
     path: framePath,
-  }
+  };
 
-  if (await resPost) {
-    console.log("Tweet", resPost, ":", resPost);
-  } else throw new Error("Could not complete your post");
-  console.log("Your post is complete!");
+  try {
+    await uploadTwitter(frame);
+  } catch (e) {
+    console.log(e);
+  }
+  try {
+    await uploadTumblr(frame);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 //DONE: Execute
