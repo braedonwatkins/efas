@@ -1,4 +1,6 @@
 import { TwitterApi } from "twitter-api-v2";
+import tumblr from "tumblr.js";
+import fs from "fs";
 
 import { twitterConfig, tumblrConfig } from "./config";
 import { FrameInfo } from "./types";
@@ -24,6 +26,39 @@ export const twitterUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
 };
 
 export const tumblrUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
+  const client = tumblr.createClient({
+    consumer_key: "K6avWkvi3FJd9nybVrnLsUlIaVwN3JFOB4YBacUFwFZBRlJB2w",
+    consumer_secret: "MNsaJhReP81pdQv2NK81xC6rbAvfRQ6gAPV1bTtAN3cGMCYAPV",
+    token: "kKczqgAGFVdJw82GEzfg1oDfd2XOEtN2N10KhU4dJnkKMARr3k",
+    token_secret: "TnfXBUcHmmdcAVyS2oe71nLf2MxUGRLuFKpApR2A0VA2XqMDvs",
+  });
+
+  // await client.blogInfo("spider-test", (err, res) => {
+  //   if (err) throw new Error(err);
+  //   else console.log(JSON.stringify(res));
+  // });
+
+  // await client.createTextPost(
+  //   "spider-test",
+  //   { title: "Title", body: "this is a post from a bot!" },
+  //   (err, res) => {
+  //     if (err) throw new Error(err);
+  //     else console.log(JSON.stringify(res));
+  //   }
+  // );
+
+  const fs = require("fs");
+  const contents = fs.readFileSync("./fs/frame.png", { encoding: "base64" });
+
+  client.createPhotoPost(
+    "spider-test",
+    { data64: contents, caption: `Frame: ${frame.num}` },
+    (err, res) => {
+      if (err) throw new Error(err);
+      else console.log(res);
+    }
+  );
+
   return frame;
 };
 

@@ -1,5 +1,4 @@
 import { FRAME_RATE, FRAME_NAME, FRAME_DIR, VIDEO_PATH } from "./const";
-import fs from "fs";
 import ffmpeg from "fluent-ffmpeg";
 
 // TODO: simplify by just ret seconds. realized after i didn't need to construct string. those damn interview problems threw me off.
@@ -67,3 +66,4 @@ export const getFrame = async (frameNum: number): Promise<string> => {
 
   return ret;
 };
+
