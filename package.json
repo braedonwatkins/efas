@@ -2,6 +2,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "fluent-ffmpeg": "^2.1.2",
+    "tumblr.js": "^3.0.0",
     "twitter-api-v2": "^1.14.0"
   },
   "name": "every-frame-a-spider",
