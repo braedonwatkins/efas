@@ -1,6 +1,5 @@
 import { TwitterApi } from "twitter-api-v2";
 import tumblr from "tumblr.js";
-import fs from "fs";
 
 import { twitterConfig, tumblrConfig } from "./config";
 import { FrameInfo } from "./types";
@@ -33,20 +32,6 @@ export const tumblrUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
     ***REMOVED***
   });
 
-  // await client.blogInfo("spider-test", (err, res) => {
-  //   if (err) throw new Error(err);
-  //   else console.log(JSON.stringify(res));
-  // });
-
-  // await client.createTextPost(
-  //   "spider-test",
-  //   { title: "Title", body: "this is a post from a bot!" },
-  //   (err, res) => {
-  //     if (err) throw new Error(err);
-  //     else console.log(JSON.stringify(res));
-  //   }
-  // );
-
   const fs = require("fs");
   const contents = fs.readFileSync("./fs/frame.png", { encoding: "base64" });
 
@@ -58,7 +43,6 @@ export const tumblrUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
       else console.log(res);
     }
   );
-
   return frame;
 };
 

@@ -38,11 +38,11 @@ const postFrame = async () => {
     path: framePath,
   };
 
-  // try {
-  //   await twitterUpload(frame);
-  // } catch (e) {
-  //   console.log(e);
-  // }
+  try {
+    await twitterUpload(frame);
+  } catch (e) {
+    console.log(e);
+  }
   try {
     await tumblrUpload(frame);
   } catch (e) {
