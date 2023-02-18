@@ -1,4 +1,5 @@
 import { TwitterApi } from "twitter-api-v2";
+import tumblr from "tumblr.js";
 
 import { twitterConfig, tumblrConfig } from "./config";
 import { FrameInfo } from "./types";
@@ -24,6 +25,24 @@ export const twitterUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
 };
 
 export const tumblrUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
+  const client = tumblr.createClient({
+    ***REMOVED***
+    ***REMOVED***
+    ***REMOVED***
+    ***REMOVED***
+  });
+
+  const fs = require("fs");
+  const contents = fs.readFileSync("./fs/frame.png", { encoding: "base64" });
+
+  client.createPhotoPost(
+    "spider-test",
+    { data64: contents, caption: `Frame: ${frame.num}` },
+    (err, res) => {
+      if (err) throw new Error(err);
+      else console.log(res);
+    }
+  );
   return frame;
 };
 
