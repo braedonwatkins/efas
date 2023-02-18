@@ -25,12 +25,7 @@ export const twitterUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
 };
 
 export const tumblrUpload = async (frame: FrameInfo): Promise<FrameInfo> => {
-  const client = tumblr.createClient({
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-  });
+  const client = tumblr.createClient(tumblrConfig);
 
   const fs = require("fs");
   const contents = fs.readFileSync("./fs/frame.png", { encoding: "base64" });
